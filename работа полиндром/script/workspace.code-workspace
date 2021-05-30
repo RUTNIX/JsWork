@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\ОТПРАВКА ЗАПРОСА  weather"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "работа полиндром"
+	}
+}

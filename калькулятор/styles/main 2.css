@@ -1,0 +1,30 @@
+body{
+    background-color: seagreen;
+}
+
+
+div{
+    width: 100%;
+    margin: auto;
+    padding-left: 40%;
+    padding-top: 10%;
+}
+
+.output{
+    color: black;
+    margin-left: 5px;
+    width: 150px;
+    height: 20px;
+    border: none;
+    font-size: 25px;
+}
+.btn{
+    background-color: slateblue;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 35px;
+    height: 35px;
+    outline: none;
+    border-radius: 52px ;
+    border: none;
+}

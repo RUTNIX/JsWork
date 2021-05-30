@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../3d lesson.js"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "3d car game"
+	}
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>place</title>
+</head>
+<body>
+    
+    <script src="threeJS/three.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+
+scene = new THREE.Scene()
+        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10000) ////
+        camera.position.z = 3200
+        camera.position.y = 50
+        renderer  = new THREE.WebGLRenderer({alpha:true, antialias:true})
+        renderer.setClearColor(0x000000, 0)
+        renderer.setSize(2560, 1000)
+
+        renderer.domElement.setAttribute('id', 'place')
+        document.body.insertBefore(renderer.domElement, document.body.firstChild)
+
+        const aLight = new THREE.AmbientLight(0x404040, 5)
+        const pLight = new THREE.PointLight(0xFFFFFF, 6)
+        scene.add(aLight)
+        pLight.position.set(12020,1200, 2)
+        scene.add(pLight)
+
+        let loader = new THREE.GLTFLoader()
+        let obj = null
+        loader.load('/3dModel/scene.gltf', function(gltf){
+            obj = gltf
+            obj.scene.scale.set(3, 3, 3)
+            scene.add(obj.scene)
+        })
+        
+        document.addEventListener('keydown',(event)=>{
+            if(event.code == 'KeyW'){
+                camera.position.z -=50
+            }else if(event.code == 'KeyS'){
+                camera.position.z += 50
+            }else if(event.code == 'KeyA'){
+                camera.position.x -= 50
+            }
+            else if(event.code == 'KeyD'){
+                camera.position.x += 50
+            }else if(event.keyCode == 37){ //left
+                camera.rotation.y += 0.08
+            }
+            else if(event.keyCode == 39){ //left
+                camera.rotation.y -=0.08
+            }else if(event.keyCode == 38){ //left
+                camera.rotation.x +=0.08
+            }
+            else if(event.keyCode == 40){ //left
+                camera.rotation.x -=0.08
+            }
+        })
+
+        function animate(){
+            requestAnimationFrame(animate)
+            
+            renderer.render(scene, camera)
+        }
+        animate()
+
+
+
+
+    </script>
+</body>
+</html>
